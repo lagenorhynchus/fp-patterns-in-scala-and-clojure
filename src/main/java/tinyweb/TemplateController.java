@@ -16,7 +16,7 @@ public abstract class TemplateController implements Controller {
     String responseBody = "";
     try {
       Map<String, List<String>> model = doRequest(request);
-      responseBody = view.render(model);
+      responseBody = this.view.render(model);
     } catch (ControllerException e) {
       responseCode = e.getStatusCode();
     } catch (RenderingException e) {

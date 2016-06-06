@@ -37,7 +37,7 @@ public class HttpRequest {
     }
 
     public Builder addHeader(String key, String value) {
-      headers.put(key, value);
+      this.headers.put(key, value);
       return this;
     }
 

@@ -14,13 +14,10 @@ public class TinyWeb {
 
   public HttpResponse handleRequest(HttpRequest request) {
     HttpRequest currentRequest = request;
-    for (Filter filter : filters) {
+    for (Filter filter : this.filters) {
       currentRequest = filter.doFilter(currentRequest);
     }
-    Controller controller = controllers.get(currentRequest.getPath());
-    if (controller == null) {
-      return null;
-    }
-    return controller.handleRequest(currentRequest);
+    Controller controller = this.controllers.get(currentRequest.getPath());
+    return (controller == null) ? null : controller.handleRequest(currentRequest);
   }
 }
